@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.3.0"
 
 gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'
@@ -12,6 +13,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap-sass', '~>3.3.6'
 gem 'figaro', '1.0'
 gem 'pry'
+gem 'devise'
 
 
 group :development, :test do
