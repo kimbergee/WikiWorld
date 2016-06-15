@@ -1,0 +1,19 @@
+<h1>Users</h1>
+<br>
+<div class="row">
+  <div class="col-md-8">
+    <% @users.each do |user| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to user.email, user %>
+          </h4>
+          <small>
+            <strong>Member since:</strong> <%= current_user.created_at.strftime("%B %d, %Y") %>
+          </small>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  </div>
+</div>
