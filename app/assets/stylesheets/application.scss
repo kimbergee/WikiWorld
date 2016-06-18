@@ -28,6 +28,7 @@
 #hind {
   font-family: 'Hind', sans-serif;
   text-align: center;
+  color: black;
 }
 
 .h2about {
@@ -38,6 +39,22 @@
 
 .jumbotron {
   border: dashed;
+  border-color: #F7786B;
+  background-color: white;
+}
+
+.name-link {
+  color: #F7786B;
+}
+
+.wiki-link {
+  color: #F7786B;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.rq-link {
+  color: #F7786B;
 }
 
 

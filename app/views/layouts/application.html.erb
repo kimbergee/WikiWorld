@@ -2,6 +2,7 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Baloo|Baloo+Thambi|BioRhyme|Hind|Indie+Flower|Poiret+One" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/readable/bootstrap.min.css" rel="stylesheet" integrity="sha384-/x/+iIbAU4qS3UecK7KIjLZdUilKKCjUFVdwFx8ba7S/WvxbrYeQuKEt0n/HWqTx" crossorigin="anonymous">
 
   <title>Blocipedia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,22 +15,32 @@
   <div class="container">
     <div class="navbar">
       <ul class="nav nav-tabs">
-        <li id="hind"><%= link_to "Home", welcome_index_path %></li>
-        <li id="hind"><%= link_to "About", welcome_about_path %></li>
+        <li id="hind"><%= link_to "Home", root_path, :class => 'rq-link' %></li>
+        <li id="hind"><%= link_to "About", about_path, :class => 'rq-link' %></li>
         <div class="pull-right user-info">
           <% if user_signed_in? %>
-            <p id="hind">Signed in as: <strong><%= link_to current_user.username, user_path(current_user) %></strong> |
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></p>
+            <p id="hind">Signed in as: <strong><%= link_to current_user.username, user_path(current_user), :class => 'name-link' %></strong> |
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'rq-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'rq-link'  %></p>
           <% else %>
           <p id="hind">
-            <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
-            <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+            <%= link_to "Sign Up", new_user_registration_path, :class => 'rq-link'  %> -
+            <%= link_to "Sign In", new_user_session_path, :class => 'rq-link'  %>
           </p>
           <% end %>
         </div>
       </ul>
-    </div>
+      <% flash.each do |key, value| %>
+        <div class="alert <%= alert_class_for(key) %> alert-dismissible fade in">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <ul>
+            <li>
+              <%= value %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
       <%= yield %>
+    </div>
   </div>
 
 </body>
