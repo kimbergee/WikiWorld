@@ -1,12 +1,12 @@
-<h1>Edit Wiki</h1>
+<h1 id="ls-color">Edit Wiki</h1>
 
 <div class="row">
   <div class="col-md-4">
     <p>Guidelines for wikis:</p>
     <ul>
-      <li>guideline stuffs 1.</li>
-      <li>guideline stuffs 2.</li>
-      <li>guideline stuffs 3.</li>
+      <li>Be clear and as concise as possible.</li>
+      <li>Maintain scope and avoid redundancy.</li>
+      <li>Be sure to credit all sources.</li>
     </ul>
   </div>
   <div class="col-md-8">
@@ -19,7 +19,7 @@
         <%= f.label :body %>
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
       </div>
-      <%= f.submit "Save", class: 'btn btn-success' %>
+      <%= f.submit "Save", class: 'ghost-button' %>
     <% end %>
   </div>
 </div>

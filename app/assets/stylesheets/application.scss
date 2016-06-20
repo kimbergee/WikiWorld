@@ -31,10 +31,11 @@
   color: black;
 }
 
-.h2about {
-  font-family: 'Hind', sans-serif;
+.h1caps {
+  text-transform: uppercase;
   text-align: center;
   font-size: 40px;
+  color: #98DDDE;
 }
 
 .jumbotron {
@@ -56,10 +57,29 @@
   color: #F7786B;
 }
 
+#ls-color {
+  color: #98DDDE;
+}
+
 .ghost-button {
  color: #98DDDE;
  background: #fff;
  border: 1px solid #98DDDE;
+ font-size: 17px;
+ padding: 7px 12px;
+ font-weight: normal;
+ margin: 6px 0;
+ margin-right: 6px;
+ display: inline-block;
+ text-decoration: none;
+ text-align: center;
+ min-width: 100px;
+}
+
+.ghost-button-del {
+ color: #F7786B;
+ background: #fff;
+ border: 1px solid #F7786B;
  font-size: 17px;
  padding: 7px 12px;
  font-weight: normal;

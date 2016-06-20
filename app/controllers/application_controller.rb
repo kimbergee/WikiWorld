@@ -20,6 +20,15 @@ class ApplicationController < ActionController::Base
     wikis_path
   end
 
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to(request.referrer || root_path)
+      flash[:alert] = "Sorry, you need to logged in to do that."
+    end
+  end
+
   private
 
   # def require_sign_in
