@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~>3.3.6'
 gem 'figaro', '1.0'
 gem 'pry'
 gem 'devise'
+gem 'pundit'
 
 
 group :development, :test do
