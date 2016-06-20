@@ -6,6 +6,17 @@ class User < ActiveRecord::Base
 
   has_many :wikis, dependent: :destroy
 
+  after_initialize :default_role
+  enum role: [:standard, :premium, :admin]
+
+  def default_role
+    self.role ||= :standard
+  end
+
+  # or
+  # after_initialize { self.role ||= :standard }
+
+
   attr_accessor :login
 
   def self.find_for_database_authentication(warden_conditions)
