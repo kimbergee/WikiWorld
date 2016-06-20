@@ -1,12 +1,15 @@
 <br><br>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
-    <div class="h2about"><%= @user.username.capitalize %>'s Profile
-      <% if @user == current_user %><%= link_to "(edit info)", edit_user_registration_path(@user), :class => 'rq-link' %><% end %>
-    </div>
-    <br>
-    <p id="hind"><strong>Username:</strong> <%= @user.username %></p>
-    <p id="hind"><strong>Email:</strong> <%= @user.email %></p>
-    <p id="hind"><strong>Member since:</strong> <%= @user.created_at.strftime("%B %d, %Y") %></p>
+    <div class="h1caps"><%= @user.username.capitalize %>'s Profile</div>
+      <center>
+        <% if @user == current_user %>
+          <%= link_to "(edit info)", edit_user_registration_path(@user), :class => 'rq-link' %>
+        <% end %>
+        <br><br>
+        <p><strong>Username:</strong> <%= @user.username %></p>
+        <p><strong>Email:</strong> <%= @user.email %></p>
+        <p><strong>Member since:</strong> <%= @user.created_at.strftime("%B %d, %Y") %></p>
+      </center>
   </div>
 </div>
