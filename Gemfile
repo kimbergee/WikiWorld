@@ -15,6 +15,7 @@ gem 'figaro', '1.0'
 gem 'pry'
 gem 'devise'
 gem 'pundit'
+gem 'stripe'
 
 
 group :development, :test do
