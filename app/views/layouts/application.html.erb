@@ -20,7 +20,8 @@
         <div class="pull-right user-info">
           <% if user_signed_in? %>
             <p>Signed in as: <strong><%= link_to current_user.username, user_path(current_user), :class => 'name-link' %></strong> |
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'rq-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'rq-link'  %></p>
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'rq-link' %> -
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'rq-link'  %></p>
           <% else %>
           <p>
             <%= link_to "Sign Up", new_user_registration_path, :class => 'rq-link'  %> -

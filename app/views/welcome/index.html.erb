@@ -4,9 +4,8 @@
 <br>
   <div class="col-md-6 col-md-offset-3">
     <div class="jumbotron">
-
-    <% unless user_signed_in? %>
     <center>
+    <% unless user_signed_in? %>
       <p>Start creating and sharing your own wikis.</p>
       <br><br>
       <p>
@@ -15,11 +14,9 @@
       </p>
       <br><br>
       <p>or just browse some <%= link_to "wikis", wikis_path, :class => 'wiki-link' %></p>
-    </center>
     <% else %>
-    <center>
       <p>See recent wikis <%= link_to "here", wikis_path, :class => 'wiki-link' %></p>
-    </center>
     <% end %>
+    </center>
   </div>
 </div>
