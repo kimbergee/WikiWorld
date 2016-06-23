@@ -17,10 +17,11 @@
     <% else %>
       <p>See recent wikis <%= link_to "here", wikis_path, :class => 'wiki-link' %></p>
     <% end %>
+    <% if current_user && current_user.standard? %>
+      <%= link_to "Upgrade to Premium!", new_charge_path, :class => 'ghost-button-del' %>
+    <% end %>
     <br>
-    <% if current_user.standard? %>
-      <%= link_to "Upgrade to Premium!", new_charge_path, :class => 'ghost-button-del' %>
-    <% end %>
+
     </center>
   </div>
 </div>
