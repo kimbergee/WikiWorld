@@ -18,6 +18,27 @@ users = User.all
 end
 wikis = Wiki.all
 
+
+premium = User.new(
+    email: "premiumuser@test.com",
+    password: "hello1234",
+    username: "premiumuser",
+    role: "premium"
+)
+premium.skip_confirmation!
+premium.save!
+
+
+standard = User.new(
+    email: "standarduser@test.com",
+    password: "hello1234",
+    username: "standarduser",
+    role: "standard"
+)
+standard.skip_confirmation!
+standard.save!
+
+
 admin = User.new(
   email: "kimber.gee@gmail.com",
   password: "hello1234",

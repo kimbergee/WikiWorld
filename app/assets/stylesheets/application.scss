@@ -35,6 +35,7 @@
   text-transform: uppercase;
   text-align: center;
   font-size: 40px;
+  font-weight: bold;
   color: #98DDDE;
 }
 
@@ -55,6 +56,15 @@
 
 .rq-link {
   color: #F7786B;
+}
+
+#ls-caps {
+  color: #98DDDE;
+  text-transform: uppercase;
+}
+
+#caps {
+  text-transform: uppercase;
 }
 
 #ls-color {
@@ -94,17 +104,12 @@
 .ghost-button-down {
  color: #F7786B;
  background: #fff;
- // border: 1px solid #F7786B;
  border: none;
  font-size: 14px;
- // padding: 7px 12px;
  font-weight: normal;
- // margin: 6px 0;
- // margin-right: 6px;
- // display: inline-block;
  text-decoration: none;
  text-align: center;
- // min-width: 100px;
+
 }
 
 

@@ -9,7 +9,7 @@
           <% end %>
         </p>
         <% if @user == current_user && @user.premium? %>
-          <%= button_to "(downgrade)", { :controller => 'users', :action => 'downgrade' }, {class: 'ghost-button-down'} %>
+          <%= button_to "(downgrade)", users_downgrade_path, data: {confirm: "Are you sure? All your private wikis will become public after downgrading." }, class: 'ghost-button-down'  %>
           <% elsif @user == current_user && @user.standard? %>
             <%= link_to "Upgrade to Premium!", new_charge_path, :class => 'ghost-button-del' %>
         <% end %>
@@ -18,6 +18,24 @@
         <p><strong>Email:</strong> <%= @user.email %></p>
         <p><strong>Member since:</strong> <%= @user.created_at.strftime("%B %d, %Y") %></p>
         <p><strong>Membership status:</strong> <%= @user.role %></p>
+        <div class = "media">
+          <h2 id="ls-caps">Wikis</h2>
+            <%= link_to "", wikis_path, class: 'glyphicon glyphicon-arrow-left rq-link' %>
+          <h4>
+            <% @user.wikis.each do |w| %>
+              <%= link_to w.title, w, :class => 'rq-link' %>
+              <% if w.private? %>
+                <small>(private)</small>
+              <% end %>
+              <br />
+            <% end %>
+          </h4>
+        </div>
       </center>
+  </div>
+  <div class="pull-right">
+    <% if current_user %>
+      <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'ghost-button' %>
+    <% end %>
   </div>
 </div>

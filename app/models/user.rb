@@ -13,10 +13,6 @@ class User < ActiveRecord::Base
     self.role ||= :standard
   end
 
-  # or
-  # after_initialize { self.role ||= :standard }
-
-
   attr_accessor :login
 
   def self.find_for_database_authentication(warden_conditions)

@@ -28,13 +28,15 @@ class WikiPolicy < ApplicationPolicy
   end
 
   class Scope < Scope
+
     def resolve
-      if user.admin?
+      if user && (user.admin? || user.premium?)
         scope.all
       else
-        scope.where(published: true)
+        scope.where(private: false)
       end
     end
+
   end
 
 end
