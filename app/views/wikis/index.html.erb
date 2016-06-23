@@ -10,6 +10,9 @@
     <div class="media-body">
       <h4 class="media-heading">
         <%= link_to wiki.title, wiki, :class => 'rq-link' %>
+        <% if wiki.private? %>
+          <small>(private)</small>
+        <% end %>
       </h4>
     </div>
   </div>

@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       super(options)
     else
       redirect_to(request.referrer || root_path)
-      flash[:alert] = "Sorry, you need to logged in to do that."
+      flash[:alert] = "Sorry, you need to be logged in to do that."
     end
   end
 

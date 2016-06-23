@@ -8,7 +8,7 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     unless !@wiki.private? || (current_user.admin? || current_user.premium?)
       flash[:alert] = "You must be a premium user to view private wikis."
-      redirect_to user_path(current_user)
+      redirect_to(request.referrer || root_path)
     end
   end
 

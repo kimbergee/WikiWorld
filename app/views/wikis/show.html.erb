@@ -3,7 +3,11 @@
 <div class="container"
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h1><%= @wiki.title %></h1><small>submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= link_to @wiki.user.username, user_path(@wiki.user), class: 'rq-link' %>.</small>
+      <h1 id="caps"><%= @wiki.title %></h1>
+      <% if @wiki.private? %>
+        <p>(private wiki)</p>
+      <% end %>
+      <small>submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= link_to @wiki.user.username, user_path(@wiki.user), class: 'rq-link' %>.</small>
       <br><br>
       <%= link_to "", wikis_path, class: 'glyphicon glyphicon-arrow-left rq-link' %>
       <br><br>

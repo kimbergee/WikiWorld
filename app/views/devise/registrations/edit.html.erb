@@ -1,5 +1,9 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
+<% if current_user.standard? %>
+  <%= link_to "Upgrade to Premium", new_charge_path, :class => 'ghost-button-del' %>
+<% end %>
+<br><br>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
