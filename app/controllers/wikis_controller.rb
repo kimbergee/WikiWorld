@@ -1,16 +1,17 @@
 class WikisController < ApplicationController
 
   def index
-    @wikis = policy_scope(Wiki).order("title ASC")
+    @wikis = policy_scope(Wiki)
     #@wikis = Wiki.visible_to(current_user)
   end
 
   def show
     @wiki = Wiki.find(params[:id])
-    unless !@wiki.private? || (current_user.admin? || current_user.premium?)
-      flash[:alert] = "You must be a premium user to view private wikis."
-      redirect_to(request.referrer || root_path)
-    end
+    authorize @wiki
+    # unless @wiki.private? || (current_user.admin? || current_user.premium? || @wiki.users.include?(current_user))
+    #   flash[:alert] = "You must be a premium user to view private wikis."
+    #   redirect_to(request.referrer || root_path)
+    # end
   end
 
   def new
@@ -37,6 +38,8 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    @collaborator = Collaborator.new
+    @available_collaborators = User.all.reject { |user| @wiki.users.include?(user) || @wiki.user == user }
     authorize @wiki
   end
 
@@ -46,6 +49,7 @@ class WikisController < ApplicationController
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
     @wiki.private = params[:wiki][:private]
+    # @wiki.user_id = params[:wiki][:user_id]
 
     if @wiki.save
       flash[:notice] = "Wiki was updated successfully."

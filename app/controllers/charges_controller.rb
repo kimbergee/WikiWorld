@@ -21,17 +21,21 @@ class ChargesController < ApplicationController
       )
     end
 
-    # Where the real magic happens
-    charge = Stripe::Charge.create(
-      customer: customer.id, # Note -- this is NOT the user_id in your app
-      amount: 15_00,
-      description: "BigMoney Membership - #{current_user.email}",
-      currency: 'usd'
-    )
-
-    flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
-    redirect_to user_path(current_user) # or wherever
-    current_user.premium!
+    if current_user.premium!
+      charge = Stripe::Charge.create(
+        customer: customer.id, # Note -- this is NOT the user_id in your app
+        amount: 15_00,
+        description: "BigMoney Membership - #{current_user.email}",
+        currency: 'usd'
+      )
+      # TODO: Handle failed charge. If charge failed, then revert to standard
+      flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
+      redirect_to user_path(current_user) # or wherever
+    else
+      # Handle Error here
+      flash[:error] = "There was an error, please try again"
+      redirect_to user_path(current_user)
+    end
 
     # Stripe will send back CardErrors, with friendly messages
     # when something goes wrong.

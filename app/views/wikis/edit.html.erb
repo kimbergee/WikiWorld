@@ -12,4 +12,10 @@
   <div class="col-md-8">
     <%= render 'form' %>
   </div>
+  <div class="col-md-8">
+    <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
+  </div>
+  <div class="">
+    <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
+  </div>
 </div>

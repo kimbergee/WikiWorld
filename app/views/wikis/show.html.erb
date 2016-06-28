@@ -1,28 +1,33 @@
 <br>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <center>
-        <h1 id="caps"><%= @wiki.title %></h1>
-        <% if @wiki.private? %>
-          <p>(private wiki)</p>
-        <% end %>
-        <small>submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= link_to @wiki.user.username, user_path(@wiki.user), class: 'rq-link' %>.</small>
-        <br><br>
-        <%= link_to "", wikis_path, class: 'glyphicon glyphicon-arrow-left rq-link' %>
-      </center>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <center>
+      <h1 id="caps"><%= @wiki.title %></h1>
+      <% if @wiki.private? %>
+        <p>(private wiki)</p>
+      <% end %>
+      <small>submitted <%= time_ago_in_words(@wiki.created_at) %> ago by <%= link_to @wiki.user.username, user_path(@wiki.user), class: 'rq-link' %>.</small>
       <br><br>
-      <p id="p-left"><%= markdown(@wiki.body) %></p>
-      <br>
-      <center>
-      <% if user_is_authorized_for_wiki?(@wiki) %>
-        <%= link_to "edit", edit_wiki_path(@wiki), class: 'ghost-button' %>
-        <%= link_to "delete", @wiki, method: :delete, class: 'ghost-button-del', data: {confirm: 'Are you sure you want to delete this wiki?'} %>
-      <% end %>
-    </div>
-    <div class="pull-right">
-      <% if current_user %>
-        <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'ghost-button' %>
-      <% end %>
-      </center>
-    </div>
+      <%= link_to "", wikis_path, class: 'glyphicon glyphicon-arrow-left rq-link' %>
+    </center>
+    <br><br>
+    <p id="p-left"><%= markdown(@wiki.body) %></p>
+    <br>
+    <center>
+    <% if user_is_authorized_for_wiki?(@wiki) %>
+      <%= link_to "edit", edit_wiki_path(@wiki), class: 'ghost-button' %>
+    <% end %>
+    <% if user_is_authorized_for_wiki_delete?(@wiki) %>
+      <%= link_to "delete", @wiki, method: :delete, class: 'ghost-button-del', data: {confirm: 'Are you sure you want to delete this wiki?'} %>
+    <% end %>
   </div>
+  <div class="pull-right">
+    <% if current_user %>
+      <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'ghost-button' %>
+    <% end %>
+    </center>
+  </div>
+  <div class="">
+    <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
+  </div>
+</div>

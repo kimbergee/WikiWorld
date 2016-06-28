@@ -1,0 +1,11 @@
+<% if @wiki.private? && wiki.user == current_user || current_user.role == 'admin' %>
+
+  <h4>Add a collaborator</h4>
+
+  <%= form_for [@wiki, @collaborator] do |f| %>
+    <div class="form-group">
+      <%= f.collection_select :user_id, @available_collaborators, :id, :username %>
+    </div>
+    <%= f.submit "Save Collaborator", class: 'ghost-button' %>
+  <% end %>
+<% end %>
