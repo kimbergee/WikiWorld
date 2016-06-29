@@ -8,6 +8,8 @@ class WikisController < ApplicationController
   def show
     @wiki = Wiki.find(params[:id])
     authorize @wiki
+    @collaborator = Collaborator.new
+    @available_collaborators = User.all.reject { |user| @wiki.users.include?(user) || @wiki.user == user }
     # unless @wiki.private? || (current_user.admin? || current_user.premium? || @wiki.users.include?(current_user))
     #   flash[:alert] = "You must be a premium user to view private wikis."
     #   redirect_to(request.referrer || root_path)

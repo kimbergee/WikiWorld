@@ -11,7 +11,9 @@
       <%= link_to "", wikis_path, class: 'glyphicon glyphicon-arrow-left rq-link' %>
     </center>
     <br><br>
+    <div class="boxed-grey">
     <p id="p-left"><%= markdown(@wiki.body) %></p>
+  </div>
     <br>
     <center>
     <% if user_is_authorized_for_wiki?(@wiki) %>
@@ -21,13 +23,25 @@
       <%= link_to "delete", @wiki, method: :delete, class: 'ghost-button-del', data: {confirm: 'Are you sure you want to delete this wiki?'} %>
     <% end %>
   </div>
+
   <div class="pull-right">
     <% if current_user %>
       <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'ghost-button' %>
     <% end %>
+  </div>
+
+
+  <div class="col-xs-4 col-xs-offset-4">
+    <br><br>
+    <% if @wiki.private? && (@wiki.user == current_user || current_user.admin? || @wiki.users.include?(current_user)) %>
+      <div class="boxed">
+        <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
+    <% end %>
+    <% if authorized_to_add_collabs?(@wiki) %>
+      <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
+    <% end %>
+      </div>
+  </div>
+
     </center>
-  </div>
-  <div class="">
-    <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
-  </div>
 </div>

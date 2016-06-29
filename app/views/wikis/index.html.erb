@@ -1,9 +1,13 @@
 <br><br>
 <div class="h1caps">All Wikis</div>
-  <% if current_user %>
-    <br><br>
+
+<% if current_user %>
+  <center>
+    <%= link_to "(or search by users)", users_path, :class => 'rq-link' %>
+  </center>
+  <br><br>
     <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'ghost-button' %>
-  <% end %>
+<% end %>
 <br><br>
 <% @wikis.each do |wiki| %>
   <div class="media">

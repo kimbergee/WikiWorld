@@ -1,17 +1,15 @@
-<div class="row">
-  <div class="col-md-8">
-    <% if @wiki.private? && (@wiki.user == current_user || current_user.admin? || @wiki.collaborators.include?(current_user)) %>
-      <% if wiki.collaborators.empty? %>
-        <h3>No collaborators yet</h3>
-      <% else %>
-        <h3>Collaborators</h3>
-        <% wiki.collaborators.each do |collaborator| %>
-          <%= collaborator.user.username %>
-          <%= link_to "Remove Collaborator", [@wiki, collaborator],
-          method: :delete, class: "btn btn-danger" %>
-        </br>
-        <% end %>
+<center>
+<% if @wiki.private? && (@wiki.user == current_user || current_user.admin? || @wiki.users.include?(current_user)) %>
+    <h3 id="caps">Current Collaborators</h3>
+    <% @wiki.collaborators.each do |collaborator| %>
+      <%= link_to collaborator.user.username, user_path(collaborator.user), id: 'ls-color' %>
+      <% if @wiki.user == current_user || current_user.admin? %>
+        <small><%= link_to "(remove)", [@wiki, collaborator],
+          data: { confirm: "Are you sure?" },
+          method: :delete, class: "rq-link" %>
+        </small>
       <% end %>
+    </br>
     <% end %>
-  </div>
-</div>
+<% end %>
+</center>

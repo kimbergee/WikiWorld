@@ -38,7 +38,7 @@ class CollaboratorsController < ApplicationController
       flash[:alert] = "There was a problem removing the collaborator. Please try again."
     end
 
-    redirect_to edit_wiki_path(@wiki)
+    redirect_to @wiki
   end
 
 

@@ -8,4 +8,8 @@ module WikisHelper
     current_user && (current_user == wiki.user || current_user.admin?)
   end
 
+  def authorized_to_add_collabs?(wiki)
+    wiki.private? && (wiki.user == current_user || current_user.admin?)
+  end
+
 end
