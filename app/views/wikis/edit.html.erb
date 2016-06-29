@@ -8,6 +8,13 @@
       <li>Maintain scope and avoid redundancy.</li>
       <li>Be sure to credit all sources.</li>
     </ul>
+    <br>
+    <% if authorized_to_add_collabs?(@wiki) %>
+      <div class="boxed">
+        <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
+        <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
+      </div>
+    <% end %>
   </div>
   <div class="col-md-8">
     <%= render 'form' %>

@@ -1,0 +1,10 @@
+<br><br>
+<center>
+  <h4>add a collaborator</h4>
+  <%= form_for [@wiki, @collaborator] do |f| %>
+    <div class="form-group">
+      <%= f.collection_select :user_id, @available_collaborators, :id, :username %>
+      <%= f.submit "save", class: 'ghost-button-save' %>
+    </div>
+  <% end %>
+</center>

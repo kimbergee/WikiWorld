@@ -10,13 +10,14 @@
     <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
   </div>
 
-  <% if current_user.admin? || current_user.premium? %>
+  <% if current_user.admin? || current_user.premium? || @wiki.users.include?(current_user) %>
     <div class="form-group">
       <%= f.label :private, class: 'checkbox pull-right' do %>
-        <%= f.check_box :private %> Private wiki
+        <%= f.check_box :private, checked: true %> Private wiki
       <% end %>
     </div>
   <% end %>
 
   <%= f.submit "Save", class: 'ghost-button' %>
+  <%= link_to 'Cancel', @wiki, class: 'ghost-button-del' %>
 <% end %>
