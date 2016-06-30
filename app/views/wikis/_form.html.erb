@@ -5,9 +5,8 @@
     <%= f.text_field :title, class: 'form-control', placeholder: "Enter wiki title" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
+  <div id="epiceditor">
+      <%= f.text_area :body, rows: 8, placeholder: "Enter wiki body" %>
   </div>
 
   <% if current_user.admin? || current_user.premium? || @wiki.users.include?(current_user) %>
@@ -21,3 +20,16 @@
   <%= f.submit "Save", class: 'ghost-button' %>
   <%= link_to 'Cancel', @wiki, class: 'ghost-button-del' %>
 <% end %>
+
+<script type="text/javascript">
+
+  // var opts = {
+  //   theme: {
+  //     base: '/themes/base/epiceditor.css',
+  //     preview: '/themes/preview/preview-dark.css',
+  //     editor: '/themes/editor/epic-dark.css'
+  //   }
+  // }
+
+  var editor = new EpicEditor().load();
+</script>

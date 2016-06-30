@@ -1,5 +1,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'base/epiceditor';
+// @import 'preview/bartik';
+@import 'preview/github';
+// @import 'preview/preview-dark';
+// @import 'editor/epic-dark';
+// @import 'editor/epic-light';
+
+.wrap {
+  width: 535px;
+  word-break: break-all;
+  white-space: normal;
+}
 
 .nav {
   margin-top: 5px;
