@@ -1,4 +1,8 @@
 class Wiki < ActiveRecord::Base
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   belongs_to :user
   scope :alphabetical, -> { order("title ASC") }
   scope :visible_to, -> (user) { (user.admin? || user.premium?) ? all : where(private: false) }

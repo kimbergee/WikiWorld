@@ -6,7 +6,7 @@ class WikisController < ApplicationController
   end
 
   def show
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.friendly.find(params[:id])
     authorize @wiki
     @collaborator = Collaborator.new
     @available_collaborators = User.all.reject { |user| @wiki.users.include?(user) || @wiki.user == user }
@@ -39,14 +39,14 @@ class WikisController < ApplicationController
   end
 
   def edit
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.friendly.find(params[:id])
     @collaborator = Collaborator.new
     @available_collaborators = User.all.reject { |user| @wiki.users.include?(user) || @wiki.user == user }
     authorize @wiki
   end
 
   def update
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.friendly.find(params[:id])
     authorize @wiki
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
@@ -63,7 +63,7 @@ class WikisController < ApplicationController
   end
 
   def destroy
-    @wiki = Wiki.find(params[:id])
+    @wiki = Wiki.friendly.find(params[:id])
     authorize @wiki
 
     if @wiki.destroy
