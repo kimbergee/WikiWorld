@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'about' => 'welcome#about'
 
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
 
   resources :users
 

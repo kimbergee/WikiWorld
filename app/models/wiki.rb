@@ -10,7 +10,7 @@ class Wiki < ActiveRecord::Base
   has_many :users, through: :collaborators
   has_many :collaborators
 
-  # before_save { self.title = title.downcase }
+  # before_save :process_before_save
 
   def collaborator_for(user)
     collaborators.where(user_id: user.id).first
@@ -23,5 +23,13 @@ class Wiki < ActiveRecord::Base
   def collabs
     users.collect(&:collaborator)
   end
+
+  # trying to fix private issue
+  # def process_before_save
+  #   current_user = @user
+  #   if @user== @wiki.users.include?(@user)
+  #     @wiki.private = true
+  #   end
+  # end
 
 end
