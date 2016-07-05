@@ -2,12 +2,16 @@
 <% if @wiki.private? && (@wiki.user == current_user || current_user.admin? || @wiki.users.include?(current_user)) %>
     <h3 id="caps">Current Collaborators</h3>
     <% @wiki.collaborators.each do |collaborator| %>
-      <%= link_to collaborator.user.username, user_path(collaborator.user), id: 'ls-color' %>
-      <% if @wiki.user == current_user || current_user.admin? %>
-        <small><%= link_to "(remove)", [@wiki, collaborator],
-          data: { confirm: "Are you sure?" },
-          method: :delete, class: "rq-link" %>
-        </small>
+      <% if collaborator.user == current_user %>
+        <small>You</small>
+      <% else %>
+        <%= link_to collaborator.user.username, user_path(collaborator.user), id: 'ls-color' %>
+        <% if @wiki.user == current_user || current_user.admin? %>
+          <small><%= link_to "(remove)", [@wiki, collaborator],
+            data: { confirm: "Are you sure?" },
+            method: :delete, class: "rq-link" %>
+          </small>
+        <% end %>
       <% end %>
     </br>
     <% end %>
