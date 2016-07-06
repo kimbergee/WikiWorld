@@ -7,6 +7,11 @@
 // @import 'editor/epic-dark';
 // @import 'editor/epic-light';
 
+a:hover {
+  // color: #7DB4B5;
+  color: #EFC050;
+}
+
 .wrap {
   width: 535px;
   word-break: break-all;
@@ -23,64 +28,47 @@
 }
 
 .h1welcome {
-  font-family: 'Baloo Thambi', cursive;
+  font-family: 'Space Mono', monospace;
   font-size: 60px;
-  color: black;
+  font-weight: bold;
+  color: #C9E4F9;
   text-align: center;
   text-transform: uppercase;
 }
 
 .h4welcome {
-  font-family: 'Baloo Thambi', cursive;
-  color: black;
+  font-family: 'Space Mono', monospace;
+  color: #b1b2b4;
   text-align: center;
   text-transform: uppercase;
 }
 
-#hind {
-  font-family: 'Hind', sans-serif;
-  text-align: center;
-  color: black;
+#snow-caps {
+  color: #C9E4F9;
+  text-transform: uppercase;
 }
 
-.h1caps {
+#gold-caps {
+  color: #EFC050;
+  text-transform: uppercase;
+}
+
+.snow-caps-big {
+  font-family: 'Space Mono', monospace;
   text-transform: uppercase;
   text-align: center;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: bold;
-  color: #98DDDE;
+  color: #C9E4F9;
 }
 
-.jumbotron {
-  border: dashed;
-  border-color: #F7786B;
-  background-color: white;
+.gold-link {
+  color: #EFC050;
 }
 
-.name-link {
-  color: #F7786B;
-}
-
-.wiki-link {
-  color: #F7786B;
-  text-decoration: underline;
-}
-
-.rq-link {
-  color: #F7786B;
-}
-
-#ls-caps {
-  color: #98DDDE;
-  text-transform: uppercase;
-}
-
-#caps {
-  text-transform: uppercase;
-}
-
-#ls-color {
-  color: #98DDDE;
+.grey-link {
+  color: #b1b2b4;
+  text-decoration: none !important;
 }
 
 #p-left {
@@ -88,24 +76,24 @@
 }
 
 .ghost-button {
- color: #98DDDE;
+ color: #C9E4F9;
  background: #fff;
- border: 1px solid #98DDDE;
+ border: 1px solid #C9E4F9;
  font-size: 17px;
  padding: 7px 12px;
  font-weight: normal;
  margin: 6px 0;
  margin-right: 6px;
  display: inline-block;
- text-decoration: none;
+ text-decoration: none !important;
  text-align: center;
  min-width: 100px;
 }
 
 .ghost-button-del {
- color: #F7786B;
+ color: #EFC050;
  background: #fff;
- border: 1px solid #F7786B;
+ border: 1px solid #EFC050;
  font-size: 17px;
  padding: 7px 12px;
  font-weight: normal;
@@ -118,7 +106,7 @@
 }
 
 .ghost-button-down {
- color: #F7786B;
+ color: #9B8F9E;
  background: #fff;
  border: none;
  font-size: 14px;
@@ -129,7 +117,7 @@
 }
 
 .ghost-button-save {
- color: #98DDDE;
+ color: #C9E4F9;
  background: #fff;
  border: none;
  font-size: 14px;
@@ -140,7 +128,8 @@
 }
 
 .boxed {
-  border: 1px dashed #98DDDE;
+  // border: 1px dashed #45B8AC;
+  border: 1px dashed #EFC050;
   padding: 10px 10px 10px 10px;
 }
 
@@ -152,10 +141,19 @@
   }
 }
 
+.boxed-wel {
+  height: 400px;
+  width: 100%;
+  border: 1px dashed #EFC050;
+  padding: 10px 10px 10px 10px;
+}
 
-// font-family: 'Baloo Thambi', cursive;
-// font-family: 'Baloo', cursive;
-// font-family: 'BioRhyme', serif;
-// font-family: 'Indie Flower', cursive;
-// font-family: 'Poiret One', cursive;
-// font-family: 'Hind', sans-serif;
+.font {
+  font-family: 'Space Mono', monospace;
+}
+
+
+// font-family: 'Space Mono', monospace;
+// font-family: 'Cormorant Unicase', serif;
+// font-family: 'Bungee Hairline', cursive;
+// font-family: 'Righteous', cursive;

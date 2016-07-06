@@ -1,11 +1,11 @@
 <br><br>
-<div class="h1caps">Users Directory</div>
+<div class="h1welcome">Users Directory</div>
 <br>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <center>
     <% @users.each do |user| %>
-      <p><%= link_to user.username, user, class: 'rq-link' %>
+      <p><%= link_to user.username, user, class: 'grey-link' %>
         <small><em>(member since: <%= current_user.created_at.strftime("%B %d, %Y") %>)</em></small>
       </p>
     <% end %>

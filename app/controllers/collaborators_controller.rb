@@ -4,12 +4,12 @@ class CollaboratorsController < ApplicationController
 
   def new
     authorize @wiki
-    @wiki = Wiki.find(params[:wiki_id])
+    @wiki = Wiki.friendly.find(params[:id])
     @collaborator = Collaborator.new
   end
 
   def create
-    @wiki = Wiki.find(params[:wiki_id])
+    @wiki = Wiki.friendly.find(params[:id])
     @collaborator = Collaborator.new
     @collaborator.user_id = params[:collaborator][:user_id]
     @collaborator.wiki_id = params[:wiki_id]
@@ -29,7 +29,7 @@ class CollaboratorsController < ApplicationController
 
   def destroy
     # authorize @wiki
-    @wiki = Wiki.find(params[:wiki_id])
+    @wiki = Wiki.friendly.find(params[:id])
     @collaborator = @wiki.collaborators.find(params[:id])
 
     if @collaborator.destroy

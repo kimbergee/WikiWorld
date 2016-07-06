@@ -10,9 +10,9 @@
   </div>
 
   <% if current_user.admin? || current_user.premium? || @wiki.users.include?(current_user) %>
-    <div class="form-group">
+    <div class="form-group grey-link">
       <%= f.label :private, class: 'checkbox pull-right' do %>
-        <%= f.check_box :private, checked: true %> Private wiki
+        <%= f.check_box :private %> Private wiki
       <% end %>
     </div>
   <% end %>

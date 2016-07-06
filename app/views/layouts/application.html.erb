@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Baloo|Baloo+Thambi|BioRhyme|Hind|Indie+Flower|Poiret+One" rel="stylesheet">
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/readable/bootstrap.min.css" rel="stylesheet" integrity="sha384-/x/+iIbAU4qS3UecK7KIjLZdUilKKCjUFVdwFx8ba7S/WvxbrYeQuKEt0n/HWqTx" crossorigin="anonymous">
-
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Cormorant+Unicase|Space+Mono|Righteous" rel="stylesheet">
   <title>Blocipedia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -12,20 +10,20 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container font">
     <div class="navbar">
       <ul class="nav nav-tabs">
-        <li><%= link_to "Home", root_path, :class => 'rq-link' %></li>
-        <li><%= link_to "About", about_path, :class => 'rq-link' %></li>
+        <li><%= link_to "Home", root_path, :class => 'grey-link' %></li>
+        <li><%= link_to "About", about_path, :class => 'grey-link' %></li>
         <div class="pull-right user-info">
           <% if user_signed_in? %>
-            <p>Signed in as: <strong><%= link_to current_user.username, user_path(current_user), :class => 'name-link' %></strong> |
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'rq-link' %> -
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'rq-link'  %></p>
+            <p>Signed in as: <strong><%= link_to current_user.username, user_path(current_user), :class => 'gold-link' %></strong> |
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'grey-link' %> -
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'grey-link'  %></p>
           <% else %>
           <p>
-            <%= link_to "Sign Up", new_user_registration_path, :class => 'rq-link'  %> -
-            <%= link_to "Sign In", new_user_session_path, :class => 'rq-link'  %>
+            <%= link_to "sign up", new_user_registration_path, :class => 'grey-link'  %> -
+            <%= link_to "sign in", new_user_session_path, :class => 'grey-link'  %>
           </p>
           <% end %>
         </div>
