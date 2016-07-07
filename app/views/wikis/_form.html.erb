@@ -6,7 +6,7 @@
   </div>
 
   <div id="epiceditor">
-      <%= f.text_area :body, rows: 8, placeholder: "Enter wiki body" %>
+      <%= f.text_area :body, rows: 8, cols: 81, placeholder: "Enter wiki body" %>
   </div>
 
   <% if current_user.admin? || current_user.premium? || @wiki.users.include?(current_user) %>
@@ -22,14 +22,26 @@
 <% end %>
 
 <script type="text/javascript">
+  var opts = {
+    container: 'epiceditor',
+    textarea: null,
+    previewBtn.onclick = function () {
+      editor.preview();
+    },
+    editBtn.onclick = function () {
+      editor.edit();
+    },
+    button: {
+      preview: true,
+      fullscreen: true
+    },
+    string: {
+      togglePreview: 'Toggle Preview Mode',
+      toggleEdit: 'Toggle Edit Mode',
+      toggleFullscreen: 'Enter Fullscreen'
+    }
+  }
 
-  // var opts = {
-  //   theme: {
-  //     base: '/themes/base/epiceditor.css',
-  //     preview: '/themes/preview/preview-dark.css',
-  //     editor: '/themes/editor/epic-dark.css'
-  //   }
-  // }
+  var editor = new EpicEditor(opts).load();
 
-  var editor = new EpicEditor().load();
 </script>

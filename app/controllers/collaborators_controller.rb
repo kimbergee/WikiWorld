@@ -1,18 +1,18 @@
 class CollaboratorsController < ApplicationController
   include Pundit
 
-
-  def new
-    authorize @wiki
-    @wiki = Wiki.friendly.find(params[:id])
-    @collaborator = Collaborator.new
-  end
+  # def new
+  #   authorize @wiki
+  #   @wiki = Wiki.find(params[:id])
+  #   @collaborator = Collaborator.new
+  # end
 
   def create
-    @wiki = Wiki.friendly.find(params[:id])
+    @wiki = Wiki.friendly.find(params[:wiki_id])
     @collaborator = Collaborator.new
     @collaborator.user_id = params[:collaborator][:user_id]
     @collaborator.wiki_id = params[:wiki_id]
+
 
     if @collaborator.save
       flash[:notice] = "New collaborator added."
@@ -40,6 +40,5 @@ class CollaboratorsController < ApplicationController
 
     redirect_to @wiki
   end
-
 
 end
