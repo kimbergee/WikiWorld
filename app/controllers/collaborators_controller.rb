@@ -13,7 +13,6 @@ class CollaboratorsController < ApplicationController
     @collaborator.user_id = params[:collaborator][:user_id]
     @collaborator.wiki_id = params[:wiki_id]
 
-
     if @collaborator.save
       flash[:notice] = "New collaborator added."
       redirect_to @wiki
