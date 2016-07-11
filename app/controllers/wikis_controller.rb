@@ -2,7 +2,6 @@ class WikisController < ApplicationController
 
   def index
     @wikis = policy_scope(Wiki)
-    #@wikis = Wiki.visible_to(current_user)
   end
 
   def show
@@ -10,10 +9,6 @@ class WikisController < ApplicationController
     authorize @wiki
     @collaborator = Collaborator.new
     @available_collaborators = User.all.reject { |user| @wiki.users.include?(user) || @wiki.user == user }
-    # unless @wiki.private? || (current_user.admin? || current_user.premium? || @wiki.users.include?(current_user))
-    #   flash[:alert] = "You must be a premium user to view private wikis."
-    #   redirect_to(request.referrer || root_path)
-    # end
   end
 
   def new
