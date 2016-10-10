@@ -10,7 +10,16 @@ This is a production quality SaaS app that allows users to create and collaborat
 + Pundit is used for authorization between private and public wikis.
 
 ##Getting Started
-+ Clone or download this repository
-+ Run `bundle install`
-+ Run `rails s` to run the project on your local server.
-+ Navigate to `localhost:3000` in your browser.
+Clone or download this repository and then run:
+```
+$ bundle install
+```
+
+
+Run the project on your local server:
+```
+$ rails s
+```
+
+
+Navigate to `localhost:3000` in your browser.
