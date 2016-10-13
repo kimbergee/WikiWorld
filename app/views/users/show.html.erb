@@ -1,15 +1,15 @@
 <br><br>
-<div class="row font">
+<div class="row">
   <div class="col-md-6 col-md-offset-3">
     <center>
-      <div class="snow-caps-big"><%= @user.username.capitalize %>'s Profile</div>
+      <div class="light-caps-big"><%= @user.username.capitalize %>'s Profile</div>
         <p>
           <% if @user == current_user %>
-            <%= link_to "(edit info)", edit_user_registration_path(@user), :class => 'grey-link' %>
+            <%= link_to "(edit info)", edit_user_registration_path(@user), :class => 'light-link' %>
           <% end %>
         </p>
         <% if @user == current_user && @user.premium? %>
-          <%= button_to "(downgrade)", users_downgrade_path, data: {confirm: "Are you sure? All your private wikis will become public after downgrading." }, class: 'ghost-button-down'  %>
+          <%= button_to "(downgrade)", users_downgrade_path, data: {confirm: "Are you sure? All your private wikis will become public after downgrading." }, class: 'ghost-button-save'  %>
           <% elsif @user == current_user && @user.standard? %>
             <%= link_to "Upgrade to Premium!", new_charge_path, :class => 'ghost-button-del' %>
         <% end %>
@@ -19,11 +19,11 @@
         <p><strong>Member since:</strong> <%= @user.created_at.strftime("%B %d, %Y") %></p>
         <p><strong>Membership status:</strong> <%= @user.role %></p>
         <div class = "media">
-          <h2 id="snow-caps">Wikis</h2>
-            <%= link_to "", wikis_path, class: 'glyphicon glyphicon-arrow-left grey-link' %>
+          <h2 id="light-caps">Wikis</h2>
+            <%= link_to "", wikis_path, class: 'glyphicon glyphicon-arrow-left light-link' %>
           <h4>
             <% @user.wikis.each do |w| %>
-              <%= link_to w.title, w, :class => 'grey-link' %>
+              <%= link_to w.title, w, :class => 'light-link' %>
               <% if w.private? %>
                 <small>(private)</small>
               <% end %>
@@ -32,10 +32,10 @@
           </h4>
           <br><br>
           <% unless @user.wiki_collaborations.empty? %>
-            <h2 id="snow-caps">Collab Wikis</h2>
+            <h2 id="light-caps">Collab Wikis</h2>
             <h4>
               <% @user.wiki_collaborations.each do |collab| %>
-                <%= link_to collab.title, wiki_path(collab), :class => 'grey-link' %>
+                <%= link_to collab.title, wiki_path(collab), :class => 'light-link' %>
                 <% if collab.private? %>
                   <small>(private)</small>
                 <% end %>

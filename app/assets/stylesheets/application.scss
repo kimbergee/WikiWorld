@@ -7,9 +7,16 @@
 // @import 'editor/epic-dark';
 // @import 'editor/epic-light';
 
+body {
+  background: #69BBF2;
+  color: #564D80;
+  font-family: 'Space Mono', monospace;
+}
+
 a:hover {
-  // color: #7DB4B5;
-  color: #EFC050;
+  color: #FC7753;
+  background: none !important;
+  border: none !important;
 }
 
 .wrap {
@@ -21,6 +28,7 @@ a:hover {
 .nav {
   margin-top: 5px;
   margin-left: -15px;
+  border: none;
 }
 
 .user-info {
@@ -31,54 +39,66 @@ a:hover {
   font-family: 'Space Mono', monospace;
   font-size: 60px;
   font-weight: bold;
-  color: #C9E4F9;
+  color: #FDFFFC;
   text-align: center;
   text-transform: uppercase;
 }
 
 .h4welcome {
   font-family: 'Space Mono', monospace;
-  color: #b1b2b4;
+  color: #FDFFFC;
   text-align: center;
   text-transform: uppercase;
 }
 
-#snow-caps {
-  color: #C9E4F9;
+#caps {
   text-transform: uppercase;
 }
 
-#gold-caps {
-  color: #EFC050;
+#light-caps {
+  color: #FDFFFC;
   text-transform: uppercase;
 }
 
-.snow-caps-big {
+.light-caps-big {
   font-family: 'Space Mono', monospace;
   text-transform: uppercase;
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  color: #C9E4F9;
+  color: #FDFFFC;
 }
 
-.gold-link {
-  color: #EFC050;
-}
-
-.grey-link {
-  color: #b1b2b4;
+.light-link {
+  color: #FDFFFC;
   text-decoration: none !important;
 }
 
-#p-left {
-  text-align: left;
+.btn-signup {
+  color: #FDFFFC;
+  background: #564D80;
+  border: 1px solid #564D80;
+  font-size: 17px;
+  padding: 7px 12px;
+  font-weight: normal;
+  margin: 6px 0;
+  margin-right: 6px;
+  display: inline-block;
+  text-decoration: none !important;
+  text-align: center;
+  min-width: 100px;
+}
+
+.btn-signup:hover {
+  color: #564D80;
+  background: #FDFFFC !important;
+  border: 1px solid #FDFFFC !important;
 }
 
 .ghost-button {
- color: #C9E4F9;
- background: #fff;
- border: 1px solid #C9E4F9;
+ color: #564D80;
+ background: #69BBF2;
+ border: 1px solid #69BBF2;
  font-size: 17px;
  padding: 7px 12px;
  font-weight: normal;
@@ -90,51 +110,52 @@ a:hover {
  min-width: 100px;
 }
 
+.ghost-button:hover {
+ color: #FDFFFC;
+ background: #564D80 !important;
+ border: 1px solid #564D80 !important;
+ text-decoration: none !important;
+}
+
 .ghost-button-del {
- color: #EFC050;
- background: #fff;
- border: 1px solid #EFC050;
+ color: #FC7753;
+ background: #69BBF2;
+ border: 1px solid #69BBF2;
  font-size: 17px;
  padding: 7px 12px;
  font-weight: normal;
  margin: 6px 0;
  margin-right: 6px;
  display: inline-block;
- text-decoration: none;
+ text-decoration: none !important;
  text-align: center;
  min-width: 100px;
 }
 
-.ghost-button-down {
- color: #9B8F9E;
- background: #fff;
- border: none;
- font-size: 14px;
- font-weight: normal;
- text-decoration: none;
- text-align: center;
-
+.ghost-button-del:hover {
+ color: #FDFFFC;
+ background: #FC7753 !important;
+ border: 1px solid #FC7753 !important;
+ text-decoration: none !important;
 }
 
 .ghost-button-save {
- color: #C9E4F9;
- background: #fff;
- border: none;
+ color: #FDFFFC;
+ background: #69BBF2;
+ border: 1px solid #69BBF2;
  font-size: 14px;
  font-weight: normal;
- text-decoration: none;
+ text-decoration: none !important;
  text-align: center;
-
 }
 
 .boxed {
-  // border: 1px dashed #45B8AC;
-  border: 1px dashed #EFC050;
+  border: 1px dashed #564D80;
   padding: 10px 10px 10px 10px;
 }
 
 .boxed-grey {
-  border: 1px dashed #d8d8da;
+  border: 1px dashed #FDFFFC;
   padding: 10px 10px 10px 10px;
   img {
     width: 535px;
@@ -142,18 +163,10 @@ a:hover {
 }
 
 .boxed-wel {
-  height: 400px;
+  height: 350px;
   width: 100%;
-  border: 1px dashed #EFC050;
+  border: 1px dashed #564D80;
   padding: 10px 10px 10px 10px;
 }
 
-.font {
-  font-family: 'Space Mono', monospace;
-}
-
-
 // font-family: 'Space Mono', monospace;
-// font-family: 'Cormorant Unicase', serif;
-// font-family: 'Bungee Hairline', cursive;
-// font-family: 'Righteous', cursive;

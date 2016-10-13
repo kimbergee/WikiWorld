@@ -1,15 +1,15 @@
 <center>
 <% if @wiki.private? && (@wiki.user == current_user || current_user.admin? || @wiki.users.include?(current_user)) %>
-    <h3 id="snow-caps">Current Collaborators</h3>
+    <h3 id="light-caps">Current Collaborators</h3>
     <% @wiki.collaborators.each do |collaborator| %>
       <% if collaborator.user == current_user %>
-        <strong class='grey-link'>(you)</strong>
+        <strong class='light-link'>(you)</strong>
       <% else %>
-        <%= link_to collaborator.user.username, user_path(collaborator.user), :class => 'gold-link' %>
+        <%= link_to collaborator.user.username, user_path(collaborator.user), :class => 'light-link' %>
         <% if @wiki.user == current_user || current_user.admin? %>
           <small><%= link_to "(remove)", [@wiki, collaborator],
             data: { confirm: "Are you sure?" },
-            method: :delete, class: "grey-link" %>
+            method: :delete, class: "light-link" %>
           </small>
         <% end %>
       <% end %>

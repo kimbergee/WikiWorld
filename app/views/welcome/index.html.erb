@@ -1,22 +1,24 @@
-<br><br>
-<div class="h1welcome">Wiki World:</div>
+<br>
+<div class="h1welcome">Wiki World</div>
+<center><%= image_tag("write-iconp.png") %></center>
+<br>
 <div class="h4welcome">Social, Markdown Wikis</div>
 <br>
   <div class="col-md-6 col-md-offset-3">
     <div class="boxed-wel">
     <center>
     <% unless user_signed_in? %>
-      <br><br><br>
-      <h2 id="gold-caps">Start creating and sharing your own wikis.</h2>
       <br><br>
+      <h2 id="caps">Start creating and sharing your own wikis.</h2>
+      <br>
       <p>
-        <%= link_to "Sign Up", new_user_registration_path, :class => 'ghost-button' %>
+        <%= link_to "Sign Up", new_user_registration_path, :class => 'btn-signup' %>
       </p>
       <br><br>
-      <p>or just browse some <%= link_to "wikis", wikis_path, :class => 'grey-link' %></p>
+      <p>or just browse some <%= link_to "wikis", wikis_path, :class => 'light-link' %></p>
     <% else %>
-    <br><br><br><br><br><br>
-      <p>See recent wikis <%= link_to "here", wikis_path, :class => 'grey-link' %></p>
+    <br><br><br><br><br><br><br><br>
+      <p>See recent wikis <%= link_to "here", wikis_path, :class => 'light-link' %></p>
     <% end %>
     <% if current_user && current_user.standard? %>
       <%= link_to "Upgrade to Premium!", new_charge_path, :class => 'ghost-button-del' %>

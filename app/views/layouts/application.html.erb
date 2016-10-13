@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://fonts.googleapis.com/css?family=Bungee+Hairline|Cormorant+Unicase|Space+Mono|Righteous" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
   <title>Wiki World</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -13,17 +13,17 @@
   <div class="container font">
     <div class="navbar">
       <ul class="nav nav-tabs">
-        <li><%= link_to "Home", root_path, :class => 'grey-link' %></li>
-        <li><%= link_to "About", about_path, :class => 'grey-link' %></li>
+        <li><%= link_to "Home", root_path, :class => 'light-link' %></li>
+        <li><%= link_to "About", about_path, :class => 'light-link' %></li>
         <div class="pull-right user-info">
           <% if user_signed_in? %>
-            <p>Signed in as: <strong><%= link_to current_user.username, user_path(current_user), :class => 'gold-link' %></strong> |
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'grey-link' %> -
-            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'grey-link'  %></p>
+            <p>Signed in as: <strong><%= link_to current_user.username, user_path(current_user), :class => 'light-link' %></strong> |
+            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'light-link' %> -
+            <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'light-link'  %></p>
           <% else %>
           <p>
-            <%= link_to "sign up", new_user_registration_path, :class => 'grey-link'  %> -
-            <%= link_to "sign in", new_user_session_path, :class => 'grey-link'  %>
+            <%= link_to "sign up", new_user_registration_path, :class => 'light-link'  %> -
+            <%= link_to "sign in", new_user_session_path, :class => 'light-link'  %>
           </p>
           <% end %>
         </div>
