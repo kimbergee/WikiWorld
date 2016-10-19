@@ -2,6 +2,9 @@
 
 This is a production quality SaaS app that allows users to create and collaborate on their own wikis.
 
+##Preview
+![wikiworld](/app/assets/images/wikiworld-small.png)
+
 ##Features
 + 2 membership types: Standard and Premium. Standard users can create and edit public wikis. Premium users can create private wikis and add collaborators. Nonmembers can browse public wikis as a guest.
 + Users can upgrade & downgrade easily and pay premium membership fees using Stripe.
