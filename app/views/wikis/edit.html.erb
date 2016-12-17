@@ -10,7 +10,7 @@
     </ul>
     <br>
     <% if authorized_to_add_collabs?(@wiki) %>
-      <div class="boxed">
+      <div class="small-boxed">
         <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
         <%= render partial: 'collaborators/form', locals: { wiki: @wiki } %>
       </div>

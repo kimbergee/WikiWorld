@@ -36,7 +36,7 @@
   <div class="col-xs-4 col-xs-offset-4">
     <br><br>
     <% if @wiki.private? && (@wiki.user == current_user || current_user.admin? || @wiki.users.include?(current_user)) %>
-      <div class="boxed">
+      <div class="small-boxed">
         <%= render partial: 'collaborators/collaborators', locals: { wiki: @wiki } %>
     <% end %>
     <% if authorized_to_add_collabs?(@wiki) %>

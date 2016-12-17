@@ -1,12 +1,12 @@
 <br><br>
-<div class="h1welcome">All Wikis</div>
+<div class="title-header">All Wikis</div>
 
 <% if current_user %>
   <center>
     <%= link_to "(or search by users)", users_path, :class => 'light-link' %>
   </center>
   <br><br>
-    <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'ghost-button' %>
+    <%= link_to "New Wiki", new_wiki_path(@wiki), class: 'btn-signup' %>
 <% end %>
 <br><br>
 <% @wikis.each do |wiki| %>
